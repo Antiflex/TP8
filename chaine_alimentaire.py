@@ -1,4 +1,4 @@
-from function import MatChain
+from function import *
 
 
 def addPredator(chaine: dict[str, list[str]]) -> bool:
@@ -32,3 +32,10 @@ def deleteChElement(animal: str) -> bool:
         pass
 
     return True
+
+
+def reprChaineEl(elem, pred_dict, ani_dict = None, sep = "-->"):
+    if ani_dict is None:
+        ani_dict = ReadAnimalsInChaine()
+
+    pass
