@@ -1,3 +1,3 @@
 from function import *
 
-PathFromPredator("lion")
+PathFromEveryAnimal()

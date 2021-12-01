@@ -46,11 +46,20 @@ def premiereProie (element:str=ReadAnimalsInChaine()[1][0]):
             return -1
 
 def PathFromPredator(Mat:list[list]=MatChain(),dico0:dict=ReadAnimalsInChaine()[0],elem:str=ReadAnimalsInChaine()[1][0]\
-                     ,sep:str="-->")->list :
+                    )->list :
     dico1=ReadAnimalsInChaine()[1]
     Path=[elem]
     activeAnimal=elem
     while premiereProie(element=activeAnimal)!=-1:
         Path.append(premiereProie(activeAnimal))
         activeAnimal=premiereProie(activeAnimal)
+    return Path
+
+def PrintPathFromPredator(Mat:list[list]=MatChain(),dico0:dict=ReadAnimalsInChaine()[0],elem:str=ReadAnimalsInChaine()[1][0]\
+                     ,sep:str="-->"):
+    Path=PathFromPredator(Mat,dico0,elem)
     print(sep.join(Path))
+
+def PathFromEveryAnimal():
+    for i in PredaListProie().keys():
+        PrintPathFromPredator(elem=i)
