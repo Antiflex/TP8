@@ -27,3 +27,12 @@ def PredaListProie(dico:dict=ReadAnimalsInChaine()[1],Mat:list[list]=MatChain())
             if arg==1 :
                 dictPredaProie[dico[i]].append(dico[j])
     return dictPredaProie
+
+def ListPrédateursProies (Names:dict=ReadAnimalsInChaine()[1], List:list[list]=MatChain()):
+    DictPredateursProies = {}
+    for i in range (len(List)):
+        DictPredateursProies[Names[i]] = []
+        for j in range(len(List[i])):
+            if List[i][j] == -1:
+                DictPredateursProies[Names[i]].append(Names[j])
+    return DictPredateursProies
