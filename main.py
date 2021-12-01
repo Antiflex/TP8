@@ -1,3 +1,3 @@
 from function import *
 
-print(PredaListProie())
+PathFromPredator("lion")

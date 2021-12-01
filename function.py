@@ -28,7 +28,7 @@ def PredaListProie(dico:dict=ReadAnimalsInChaine()[1],Mat:list[list]=MatChain())
                 dictPredaProie[dico[i]].append(dico[j])
     return dictPredaProie
 
-def ListPrédateursProies (Names:dict=ReadAnimalsInChaine()[1], List:list[list]=MatChain()):
+def ListPrédateursProies (Names:dict=ReadAnimalsInChaine()[1], List:list[list]=MatChain())->dict:
     DictPredateursProies = {}
     for i in range (len(List)):
         DictPredateursProies[Names[i]] = []
@@ -36,3 +36,21 @@ def ListPrédateursProies (Names:dict=ReadAnimalsInChaine()[1], List:list[list]=
             if List[i][j] == -1:
                 DictPredateursProies[Names[i]].append(Names[j])
     return DictPredateursProies
+
+def premiereProie (element:str=ReadAnimalsInChaine()[1][0]):
+    dico= ReadAnimalsInChaine()[0]
+    if element in dico.keys():
+        if PredaListProie()[element]!=[]:
+            return PredaListProie()[element][0]
+        else:
+            return -1
+
+def PathFromPredator(Mat:list[list]=MatChain(),dico0:dict=ReadAnimalsInChaine()[0],elem:str=ReadAnimalsInChaine()[1][0]\
+                     ,sep:str="-->")->list :
+    dico1=ReadAnimalsInChaine()[1]
+    Path=[elem]
+    activeAnimal=elem
+    while premiereProie(element=activeAnimal)!=-1:
+        Path.append(premiereProie(activeAnimal))
+        activeAnimal=premiereProie(activeAnimal)
+    print(sep.join(Path))
