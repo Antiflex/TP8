@@ -1,3 +1,3 @@
 from function import *
 
-print(MatChain())
+print(PredaListProie())
