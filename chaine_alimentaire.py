@@ -5,7 +5,16 @@ def addPredator(chaine: dict[str, list[str]]) -> bool:
     content[1] += " ".join([ani for ani in chaine.keys()])
     content[0] = str(len(content[1].split(" ")))
 
-    pass  # matrice
+    animal_list = [animal for animal in content[1].split(" ")]
+    newlines = [[0 for __ in range(int(content[0]))]
+                for pred in chaine.values()]
+    for i, predator in enumerate(chaine.keys()):
+        for ani_index, animal in enumerate(animal_list):
+            if animal in chaine[predator]:
+                newlines[i][ani_index] = 1
+    newcolumns = [[] newlines]
+
+
     with open("chaine.txt", 'w') as file:
         return True
 
